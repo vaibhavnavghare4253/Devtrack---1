@@ -1,0 +1,86 @@
+{
+  "info": {
+    "name": "DevTrack",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create reporter",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"name\": \"Asha Patel\",\n  \"email\": \"asha@example.com\",\n  \"team\": \"backend\"\n}"
+        },
+        "url": "http://127.0.0.1:8000/api/reporters/"
+      }
+    },
+    {
+      "name": "Get all reporters",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/api/reporters/"
+      }
+    },
+    {
+      "name": "Get reporter by id",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/api/reporters/?id=1"
+      }
+    },
+    {
+      "name": "Create critical issue",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"title\": \"Login button not working on mobile\",\n  \"description\": \"Users on iOS 17 cannot tap the login button\",\n  \"status\": \"open\",\n  \"priority\": \"critical\",\n  \"reporter_id\": 1\n}"
+        },
+        "url": "http://127.0.0.1:8000/api/issues/"
+      }
+    },
+    {
+      "name": "Create issue empty title (400)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 2,\n  \"title\": \"\",\n  \"description\": \"Missing title\",\n  \"status\": \"open\",\n  \"priority\": \"high\",\n  \"reporter_id\": 1\n}"
+        },
+        "url": "http://127.0.0.1:8000/api/issues/"
+      }
+    },
+    {
+      "name": "Get all issues",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/api/issues/"
+      }
+    },
+    {
+      "name": "Get issue by id",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/api/issues/?id=1"
+      }
+    },
+    {
+      "name": "Get issue missing (404)",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/api/issues/?id=999"
+      }
+    },
+    {
+      "name": "Get issues by status",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/api/issues/?status=open"
+      }
+    }
+  ]
+}
